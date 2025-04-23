@@ -9,12 +9,15 @@ export class HttpExceptionFilter implements ExceptionFilter {
     const status = exception.getStatus();
     const exceptionResponse = exception.getResponse();
 
-    response
-      .status(status)
-      .json({
-        statusCode: status,
-        timestamp: new Date().toISOString(),
-        message: exceptionResponse['message'] || exception.message,
-      });
+    // 에러 응답 형식 통일
+    const errorResponse = {
+      statusCode: status,
+      timestamp: new Date().toISOString(),
+      message: exceptionResponse['message'] || exception.message,
+      error: exceptionResponse['error'] || 'Error',
+      details: exceptionResponse['details'] || {}
+    };
+
+    response.status(status).json(errorResponse);
   }
 } 
