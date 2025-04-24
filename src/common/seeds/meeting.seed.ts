@@ -1,10 +1,11 @@
 import { DataSource } from 'typeorm';
 import { Meeting, ParticipationType, AgeFilter, GenderFilter, MeetingStatus } from '../../meetings/entities/meeting.entity';
+import { v4 as uuidv4 } from 'uuid';
 
 export const meetingSeeds = [
   {
     id: '550e8400-e29b-41d4-a716-446655440000',
-    host_id: '1',
+    host_id: '550e8400-e29b-41d4-a716-446655440000',
     title: '해리포터와 마법사의 돌 함께 읽기',
     book_title: '해리포터와 마법사의 돌',
     date: new Date('2024-04-20'),
@@ -19,7 +20,7 @@ export const meetingSeeds = [
   },
   {
     id: '550e8400-e29b-41d4-a716-446655440001',
-    host_id: '2',
+    host_id: '550e8400-e29b-41d4-a716-446655440001',
     title: '아몬드 북클럽',
     book_title: '아몬드',
     date: new Date('2024-04-25'),
@@ -34,7 +35,7 @@ export const meetingSeeds = [
   },
   {
     id: '550e8400-e29b-41d4-a716-446655440002',
-    host_id: '3',
+    host_id: '550e8400-e29b-41d4-a716-446655440002',
     title: '이방인 읽기 모임',
     book_title: '이방인',
     date: new Date('2024-05-01'),
@@ -49,7 +50,7 @@ export const meetingSeeds = [
   },
   {
     id: '550e8400-e29b-41d4-a716-446655440003',
-    host_id: '4',
+    host_id: '550e8400-e29b-41d4-a716-446655440003',
     title: '데미안 북토크',
     book_title: '데미안',
     date: new Date('2024-05-05'),
@@ -64,7 +65,7 @@ export const meetingSeeds = [
   },
   {
     id: '550e8400-e29b-41d4-a716-446655440004',
-    host_id: '5',
+    host_id: '550e8400-e29b-41d4-a716-446655440004',
     title: '사피엔스 스터디',
     book_title: '사피엔스',
     date: new Date('2024-05-10'),
@@ -79,7 +80,7 @@ export const meetingSeeds = [
   },
   {
     id: '550e8400-e29b-41d4-a716-446655440005',
-    host_id: '6',
+    host_id: '550e8400-e29b-41d4-a716-446655440005',
     title: '82년생 김지영 함께 읽기',
     book_title: '82년생 김지영',
     date: new Date('2024-05-15'),
@@ -94,7 +95,7 @@ export const meetingSeeds = [
   },
   {
     id: '550e8400-e29b-41d4-a716-446655440006',
-    host_id: '7',
+    host_id: '550e8400-e29b-41d4-a716-446655440006',
     title: '코스모스 북클럽',
     book_title: '코스모스',
     date: new Date('2024-05-20'),
@@ -109,7 +110,7 @@ export const meetingSeeds = [
   },
   {
     id: '550e8400-e29b-41d4-a716-446655440007',
-    host_id: '8',
+    host_id: '550e8400-e29b-41d4-a716-446655440007',
     title: '작은 아씨들 북토크',
     book_title: '작은 아씨들',
     date: new Date('2024-05-25'),
@@ -124,7 +125,7 @@ export const meetingSeeds = [
   },
   {
     id: '550e8400-e29b-41d4-a716-446655440008',
-    host_id: '9',
+    host_id: '550e8400-e29b-41d4-a716-446655440008',
     title: '동물농장 스터디',
     book_title: '동물농장',
     date: new Date('2024-05-30'),
@@ -139,7 +140,7 @@ export const meetingSeeds = [
   },
   {
     id: '550e8400-e29b-41d4-a716-446655440009',
-    host_id: '10',
+    host_id: '550e8400-e29b-41d4-a716-446655440009',
     title: '노르웨이의 숲 북클럽',
     book_title: '노르웨이의 숲',
     date: new Date('2024-06-05'),

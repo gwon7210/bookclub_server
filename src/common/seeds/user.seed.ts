@@ -4,7 +4,7 @@ import * as bcrypt from 'bcrypt';
 
 export const userSeeds = [
   {
-    id: '1',
+    id: '550e8400-e29b-41d4-a716-446655440000',
     phoneNumber: '010-1111-1111',
     nickname: '책읽는고양이',
     passwordHash: bcrypt.hashSync('password123', 10),
@@ -13,7 +13,7 @@ export const userSeeds = [
     location: '37.5665, 126.9780',
   },
   {
-    id: '2',
+    id: '550e8400-e29b-41d4-a716-446655440001',
     phoneNumber: '010-2222-2222',
     nickname: '독서왕',
     passwordHash: bcrypt.hashSync('password123', 10),
@@ -22,7 +22,7 @@ export const userSeeds = [
     location: '37.5665, 126.9780',
   },
   {
-    id: '3',
+    id: '550e8400-e29b-41d4-a716-446655440002',
     phoneNumber: '010-3333-3333',
     nickname: '책벌레',
     passwordHash: bcrypt.hashSync('password123', 10),
@@ -31,7 +31,7 @@ export const userSeeds = [
     location: '37.5665, 126.9780',
   },
   {
-    id: '4',
+    id: '550e8400-e29b-41d4-a716-446655440003',
     phoneNumber: '010-4444-4444',
     nickname: '문학청년',
     passwordHash: bcrypt.hashSync('password123', 10),
@@ -40,7 +40,7 @@ export const userSeeds = [
     location: '37.5665, 126.9780',
   },
   {
-    id: '5',
+    id: '550e8400-e29b-41d4-a716-446655440004',
     phoneNumber: '010-5555-5555',
     nickname: '책사랑',
     passwordHash: bcrypt.hashSync('password123', 10),
@@ -49,7 +49,7 @@ export const userSeeds = [
     location: '37.5665, 126.9780',
   },
   {
-    id: '6',
+    id: '550e8400-e29b-41d4-a716-446655440005',
     phoneNumber: '010-6666-6666',
     nickname: '독서광',
     passwordHash: bcrypt.hashSync('password123', 10),
@@ -58,7 +58,7 @@ export const userSeeds = [
     location: '37.5665, 126.9780',
   },
   {
-    id: '7',
+    id: '550e8400-e29b-41d4-a716-446655440006',
     phoneNumber: '010-7777-7777',
     nickname: '책마니아',
     passwordHash: bcrypt.hashSync('password123', 10),
@@ -67,7 +67,7 @@ export const userSeeds = [
     location: '37.5665, 126.9780',
   },
   {
-    id: '8',
+    id: '550e8400-e29b-41d4-a716-446655440007',
     phoneNumber: '010-8888-8888',
     nickname: '문학소녀',
     passwordHash: bcrypt.hashSync('password123', 10),
@@ -76,7 +76,7 @@ export const userSeeds = [
     location: '37.5665, 126.9780',
   },
   {
-    id: '9',
+    id: '550e8400-e29b-41d4-a716-446655440008',
     phoneNumber: '010-9999-9999',
     nickname: '책임감',
     passwordHash: bcrypt.hashSync('password123', 10),
@@ -85,7 +85,7 @@ export const userSeeds = [
     location: '37.5665, 126.9780',
   },
   {
-    id: '10',
+    id: '550e8400-e29b-41d4-a716-446655440009',
     phoneNumber: '010-0000-0000',
     nickname: '독서천재',
     passwordHash: bcrypt.hashSync('password123', 10),

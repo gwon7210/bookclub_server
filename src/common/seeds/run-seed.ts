@@ -28,6 +28,15 @@ const runSeed = async () => {
     await dataSource.initialize();
     console.log('데이터베이스 연결 성공');
 
+    // 기존 데이터 삭제
+    await dataSource.dropDatabase();
+    console.log('기존 데이터 삭제 완료');
+
+    // 테이블 재생성
+    await dataSource.synchronize();
+    console.log('테이블 재생성 완료');
+
+    // 시드 데이터 삽입
     await seedUsers(dataSource);
     console.log('유저 데이터 시드 완료');
 
