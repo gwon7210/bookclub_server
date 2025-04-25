@@ -6,18 +6,6 @@ export enum ParticipationType {
   APPROVAL = 'approval',
 }
 
-export enum AgeFilter {
-  TWENTIES = '20s',
-  THIRTIES = '30s',
-  ALL = 'all',
-}
-
-export enum GenderFilter {
-  MALE = 'male',
-  FEMALE = 'female',
-  ALL = 'all',
-}
-
 export enum MeetingStatus {
   ACTIVE = 'active',
   ENDED = 'ended',
@@ -63,20 +51,6 @@ export class Meeting {
     default: ParticipationType.APPROVAL,
   })
   participation_type: ParticipationType;
-
-  @Column({
-    type: 'enum',
-    enum: AgeFilter,
-    nullable: true,
-  })
-  age_filter: AgeFilter;
-
-  @Column({
-    type: 'enum',
-    enum: GenderFilter,
-    nullable: true,
-  })
-  gender_filter: GenderFilter;
 
   @Column({
     type: 'enum',

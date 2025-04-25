@@ -1,5 +1,5 @@
 import { DataSource } from 'typeorm';
-import { Meeting, ParticipationType, AgeFilter, GenderFilter, MeetingStatus } from '../../meetings/entities/meeting.entity';
+import { Meeting, ParticipationType, MeetingStatus } from '../../meetings/entities/meeting.entity';
 import { v4 as uuidv4 } from 'uuid';
 
 export const meetingSeeds = [
@@ -14,8 +14,6 @@ export const meetingSeeds = [
     max_participants: 6,
     description: '해리포터 시리즈를 처음 읽는 분들과 함께 이야기 나누고 싶어요.',
     participation_type: ParticipationType.APPROVAL,
-    age_filter: AgeFilter.TWENTIES,
-    gender_filter: GenderFilter.ALL,
     status: MeetingStatus.ACTIVE,
   },
   {
@@ -29,8 +27,6 @@ export const meetingSeeds = [
     max_participants: 4,
     description: '손원평 작가의 아몬드를 읽고 감정에 대해 이야기해보아요.',
     participation_type: ParticipationType.INSTANT,
-    age_filter: AgeFilter.ALL,
-    gender_filter: GenderFilter.ALL,
     status: MeetingStatus.ACTIVE,
   },
   {
@@ -44,8 +40,6 @@ export const meetingSeeds = [
     max_participants: 8,
     description: '알베르 카뮈의 이방인을 통해 실존주의에 대해 토론해봐요.',
     participation_type: ParticipationType.APPROVAL,
-    age_filter: AgeFilter.THIRTIES,
-    gender_filter: GenderFilter.ALL,
     status: MeetingStatus.ACTIVE,
   },
   {
@@ -59,8 +53,6 @@ export const meetingSeeds = [
     max_participants: 5,
     description: '헤르만 헤세의 데미안을 읽고 자아와 성장에 대해 이야기 나눠요.',
     participation_type: ParticipationType.INSTANT,
-    age_filter: AgeFilter.ALL,
-    gender_filter: GenderFilter.FEMALE,
     status: MeetingStatus.ACTIVE,
   },
   {
@@ -74,8 +66,6 @@ export const meetingSeeds = [
     max_participants: 10,
     description: '유발 하라리의 사피엔스를 함께 읽고 인류의 역사에 대해 토론해요.',
     participation_type: ParticipationType.APPROVAL,
-    age_filter: AgeFilter.ALL,
-    gender_filter: GenderFilter.ALL,
     status: MeetingStatus.ACTIVE,
   },
   {
@@ -89,8 +79,6 @@ export const meetingSeeds = [
     max_participants: 8,
     description: '조남주 작가의 82년생 김지영을 읽고 성평등에 대해 이야기 나눠요.',
     participation_type: ParticipationType.APPROVAL,
-    age_filter: AgeFilter.ALL,
-    gender_filter: GenderFilter.ALL,
     status: MeetingStatus.ACTIVE,
   },
   {
@@ -104,8 +92,6 @@ export const meetingSeeds = [
     max_participants: 6,
     description: '칼 세이건의 코스모스를 읽고 우주에 대해 이야기 나눠요.',
     participation_type: ParticipationType.INSTANT,
-    age_filter: AgeFilter.ALL,
-    gender_filter: GenderFilter.ALL,
     status: MeetingStatus.ACTIVE,
   },
   {
@@ -119,8 +105,6 @@ export const meetingSeeds = [
     max_participants: 5,
     description: '루이자 메이 올콧의 작은 아씨들을 읽고 가족애에 대해 이야기 나눠요.',
     participation_type: ParticipationType.APPROVAL,
-    age_filter: AgeFilter.ALL,
-    gender_filter: GenderFilter.ALL,
     status: MeetingStatus.ACTIVE,
   },
   {
@@ -134,8 +118,6 @@ export const meetingSeeds = [
     max_participants: 7,
     description: '조지 오웰의 동물농장을 읽고 정치와 권력에 대해 토론해요.',
     participation_type: ParticipationType.APPROVAL,
-    age_filter: AgeFilter.ALL,
-    gender_filter: GenderFilter.ALL,
     status: MeetingStatus.ACTIVE,
   },
   {
@@ -149,8 +131,6 @@ export const meetingSeeds = [
     max_participants: 6,
     description: '무라카미 하루키의 노르웨이의 숲을 읽고 청춘과 사랑에 대해 이야기 나눠요.',
     participation_type: ParticipationType.INSTANT,
-    age_filter: AgeFilter.ALL,
-    gender_filter: GenderFilter.ALL,
     status: MeetingStatus.ACTIVE,
   }
 ];

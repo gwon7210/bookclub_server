@@ -1,4 +1,4 @@
-import { ParticipationType, AgeFilter, GenderFilter } from '../entities/meeting.entity';
+import { ParticipationType } from '../entities/meeting.entity';
 
 export class CreateMeetingDto {
   title: string;
@@ -9,6 +9,4 @@ export class CreateMeetingDto {
   max_participants: number;
   description: string;
   participation_type: ParticipationType;
-  age_filter?: AgeFilter;
-  gender_filter?: GenderFilter;
 } 
