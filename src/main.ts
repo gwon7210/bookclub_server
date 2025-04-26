@@ -2,8 +2,6 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { seedUsers } from './common/seeds/user.seed';
 import { seedMeetings } from './common/seeds/meeting.seed';
-import { seedMeetingApplications } from './common/seeds/meeting-application.seed';
-import { seedMeetingParticipants } from './common/seeds/meeting-participant.seed';
 import { seedChatMessages } from './common/seeds/chat-message.seed';
 import { seedNotifications } from './common/seeds/notification.seed';
 import { DataSource } from 'typeorm';
@@ -36,12 +34,6 @@ async function bootstrap() {
 
     await seedMeetings(dataSource);
     console.log('모임 데이터 시드 완료');
-
-    await seedMeetingApplications(dataSource);
-    console.log('모임 신청 데이터 시드 완료');
-
-    await seedMeetingParticipants(dataSource);
-    console.log('모임 참여자 데이터 시드 완료');
 
     await seedChatMessages(dataSource);
     console.log('채팅 메시지 데이터 시드 완료');

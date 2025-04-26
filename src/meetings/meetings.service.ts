@@ -6,6 +6,7 @@ import { MeetingApplication, ApplicationStatus } from '../applications/entities/
 import { MeetingParticipant } from '../participants/entities/meeting-participant.entity';
 import { CreateMeetingDto } from './dto/create-meeting.dto';
 import { FilterMeetingsDto } from './dto/filter-meetings.dto';
+import { JoinMeetingDto } from './dto/join-meeting.dto';
 
 @Injectable()
 export class MeetingsService {
@@ -36,36 +37,36 @@ export class MeetingsService {
     return savedMeeting;
   }
 
-  async findAll(filterDto: FilterMeetingsDto) {
+  async findAll(filterDto: FilterMeetingsDto): Promise<Meeting[]> {
     const { region, start_date, end_date, tags, page = 1, limit = 10 } = filterDto;
-    
-    const query = this.meetingRepository.createQueryBuilder('meeting')
+    const skip = (page - 1) * limit;
+
+    const queryBuilder = this.meetingRepository
+      .createQueryBuilder('meeting')
+      .leftJoinAndSelect('meeting.host', 'host')
       .where('meeting.status = :status', { status: MeetingStatus.ACTIVE });
 
     if (region) {
-      query.andWhere('meeting.location LIKE :region', { region: `%${region}%` });
+      queryBuilder.andWhere('meeting.location LIKE :region', { region: `%${region}%` });
     }
 
-    if (start_date && end_date) {
-      query.andWhere('meeting.date BETWEEN :start_date AND :end_date', {
-        start_date,
-        end_date,
-      });
+    if (start_date) {
+      queryBuilder.andWhere('meeting.date >= :start_date', { start_date });
     }
 
-    // TODO: 태그 필터링 구현 (태그 기능 추가 후)
+    if (end_date) {
+      queryBuilder.andWhere('meeting.date <= :end_date', { end_date });
+    }
 
-    const [meetings, total] = await query
-      .skip((page - 1) * limit)
+    if (tags && tags.length > 0) {
+      queryBuilder.andWhere('meeting.tags && :tags', { tags });
+    }
+
+    return queryBuilder
+      .orderBy('meeting.created_at', 'DESC')
+      .skip(skip)
       .take(limit)
-      .getManyAndCount();
-
-    return {
-      meetings,
-      total,
-      page,
-      last_page: Math.ceil(total / limit),
-    };
+      .getMany();
   }
 
   async findOne(id: string): Promise<Meeting> {
@@ -81,7 +82,7 @@ export class MeetingsService {
     return meeting;
   }
 
-  async join(userId: string, meetingId: string) {
+  async join(userId: string, meetingId: string, joinMeetingDto: JoinMeetingDto) {
     const meeting = await this.findOne(meetingId);
 
     // 이미 신청했거나 참여 중인지 확인
@@ -118,6 +119,7 @@ export class MeetingsService {
         meeting_id: meetingId,
         user_id: userId,
         status: ApplicationStatus.PENDING,
+        message: joinMeetingDto.message || '',
       });
     }
   }

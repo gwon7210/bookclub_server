@@ -3,6 +3,7 @@ import { MeetingsService } from './meetings.service';
 import { CreateMeetingDto } from './dto/create-meeting.dto';
 import { FilterMeetingsDto } from './dto/filter-meetings.dto';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
+import { JoinMeetingDto } from './dto/join-meeting.dto';
 
 @Controller('meetings')
 @UseGuards(JwtAuthGuard)
@@ -16,7 +17,11 @@ export class MeetingsController {
 
   @Get()
   async findAll(@Query() filterDto: FilterMeetingsDto) {
-    return this.meetingsService.findAll(filterDto);
+    const meetings = await this.meetingsService.findAll(filterDto);
+    return {
+      success: true,
+      data: meetings
+    };
   }
 
   @Get(':id')
@@ -25,8 +30,8 @@ export class MeetingsController {
   }
 
   @Post(':id/join')
-  async join(@Req() req, @Param('id') id: string) {
-    return this.meetingsService.join(req.user.id, id);
+  async join(@Req() req, @Param('id') id: string, @Body() joinMeetingDto: JoinMeetingDto) {
+    return this.meetingsService.join(req.user.id, id, joinMeetingDto);
   }
 
   @Get(':id/applicants')

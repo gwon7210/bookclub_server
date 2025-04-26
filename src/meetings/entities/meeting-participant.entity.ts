@@ -8,7 +8,7 @@ export enum AttendStatus {
   DECLINED = 'declined'
 }
 
-@Entity()
+@Entity('meeting_participant')
 export class MeetingParticipant {
   @PrimaryGeneratedColumn('uuid')
   id: string;

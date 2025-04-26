@@ -21,7 +21,7 @@ export class Meeting {
   @JoinColumn({ name: 'host_id' })
   host: User;
 
-  @Column()
+  @Column({ name: 'host_id' })
   host_id: string;
 
   @Column({ length: 100 })
